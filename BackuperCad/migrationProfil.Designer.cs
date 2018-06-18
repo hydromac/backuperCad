@@ -35,6 +35,7 @@
 			this.b1 = new System.Windows.Forms.Button();
 			this.ChangeToUserName = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
+			this.openExplorer = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// progresMoment
@@ -107,12 +108,24 @@
 			this.label1.TabIndex = 31;
 			this.label1.Text = "Podaj login użytkownika docelowego";
 			// 
-			// Form4
+			// openExplorer
+			// 
+			this.openExplorer.Location = new System.Drawing.Point(30, 196);
+			this.openExplorer.Name = "openExplorer";
+			this.openExplorer.Size = new System.Drawing.Size(318, 28);
+			this.openExplorer.TabIndex = 32;
+			this.openExplorer.Text = "Otwórz miejsce docelowe";
+			this.openExplorer.UseVisualStyleBackColor = true;
+			this.openExplorer.Visible = false;
+			this.openExplorer.Click += new System.EventHandler(this.openExplorer_Click);
+			// 
+			// migrationProfil
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.ClientSize = new System.Drawing.Size(384, 236);
+			this.Controls.Add(this.openExplorer);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.ChangeToUserName);
 			this.Controls.Add(this.progresMoment);
@@ -122,10 +135,9 @@
 			this.Controls.Add(this.b1);
 			this.MaximumSize = new System.Drawing.Size(400, 275);
 			this.MinimumSize = new System.Drawing.Size(400, 275);
-			this.Name = "Form4";
+			this.Name = "migrationProfil";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Przenoszenie profilu...";
-			this.Load += new System.EventHandler(this.Form4_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -140,5 +152,6 @@
 		private System.Windows.Forms.Button b1;
 		private System.Windows.Forms.TextBox ChangeToUserName;
 		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Button openExplorer;
 	}
 }

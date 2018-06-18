@@ -33,6 +33,7 @@
 			this.b1 = new System.Windows.Forms.Button();
 			this.Progres = new System.Windows.Forms.Label();
 			this.progresMoment = new System.Windows.Forms.Label();
+			this.OpenExplorer = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// wProgram
@@ -89,12 +90,24 @@
 			this.progresMoment.TabIndex = 24;
 			this.progresMoment.Text = "...";
 			// 
-			// Form2
+			// OpenExplorer
+			// 
+			this.OpenExplorer.Location = new System.Drawing.Point(28, 120);
+			this.OpenExplorer.Name = "OpenExplorer";
+			this.OpenExplorer.Size = new System.Drawing.Size(318, 29);
+			this.OpenExplorer.TabIndex = 25;
+			this.OpenExplorer.Text = "Otwórz miejsce decelowe";
+			this.OpenExplorer.UseVisualStyleBackColor = true;
+			this.OpenExplorer.Visible = false;
+			this.OpenExplorer.Click += new System.EventHandler(this.OpenExplorer_Click);
+			// 
+			// CopyProfil
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.ClientSize = new System.Drawing.Size(384, 161);
+			this.Controls.Add(this.OpenExplorer);
 			this.Controls.Add(this.progresMoment);
 			this.Controls.Add(this.Progres);
 			this.Controls.Add(this.wProgram);
@@ -102,7 +115,7 @@
 			this.Controls.Add(this.b1);
 			this.MaximumSize = new System.Drawing.Size(400, 200);
 			this.MinimumSize = new System.Drawing.Size(400, 200);
-			this.Name = "Form2";
+			this.Name = "CopyProfil";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Tworzenie kopi profilu";
 			this.ResumeLayout(false);
@@ -117,5 +130,6 @@
 		private System.Windows.Forms.Button b1;
 		private System.Windows.Forms.Label Progres;
 		private System.Windows.Forms.Label progresMoment;
+		private System.Windows.Forms.Button OpenExplorer;
 	}
 }

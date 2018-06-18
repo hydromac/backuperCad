@@ -73,7 +73,7 @@
 			this.label1.TabIndex = 3;
 			this.label1.Text = "Autor: Tomasz Szczotkowski";
 			// 
-			// Form1
+			// StartWindow
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -89,7 +89,7 @@
 			this.MaximumSize = new System.Drawing.Size(400, 400);
 			this.MinimizeBox = false;
 			this.MinimumSize = new System.Drawing.Size(400, 400);
-			this.Name = "Form1";
+			this.Name = "StartWindow";
 			this.ShowIcon = false;
 			this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

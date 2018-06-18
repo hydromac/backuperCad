@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -13,6 +14,9 @@ namespace BackuperCad
 {
 	public partial class CopyProfil : Form
 	{
+
+		String userName = Environment.UserName;
+
 		public CopyProfil(StartWindow form1)
 		{
 			InitializeComponent();
@@ -30,11 +34,11 @@ namespace BackuperCad
 			String reg = programElements[1];
 
 
-			String userName = Environment.UserName;
+			
 			String pathRoaming = "C:\\Users\\" + userName + "\\AppData\\Roaming\\" + program;
 			String pathLocal = "C:\\Users\\" + userName + "\\AppData\\Local\\" + program;
 
-			String targetPath = "C:\\BACK_ " + program + String.Format("_{0}_{1}_{2}", DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
+			String targetPath = "C:\\Users\\" + userName + "\\Documents\\" + "backuperCad_ " + program + String.Format("_{0}_{1}_{2}", DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
 			String targetRoaming = targetPath + "\\Roaming";
 			String targetLocal = targetPath + "\\Local";
 			String pathReg = "HKCU\\Software\\" + reg;
@@ -87,6 +91,8 @@ namespace BackuperCad
 						}
 						progresMoment.ForeColor = Color.FromArgb(0, 204, 0);
 						progresMoment.Text = "Skończone";
+						OpenExplorer.Visible = true;
+						Refresh();
 
 					}
 					else
@@ -109,6 +115,9 @@ namespace BackuperCad
 			}
 		}
 
-
+		private void OpenExplorer_Click(object sender, EventArgs e)
+		{
+			Process.Start(@"C:\\Users\\" + userName + "\\Documents\\");
+		}
 	}
 }

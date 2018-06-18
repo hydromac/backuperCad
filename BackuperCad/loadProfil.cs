@@ -13,13 +13,15 @@ namespace BackuperCad
 {
 	public partial class loadProfil : Form
 	{
+		String userName = Environment.UserName;
+
 		public loadProfil(StartWindow form1)
 		{
 			InitializeComponent();
-			List<string> BackupList = new List<string>(Directory.GetDirectories("C:\\"));
+			List<string> BackupList = new List<string>(Directory.GetDirectories("C:\\Users\\" + userName + "\\Documents\\"));
 			foreach (string element in BackupList)
 			{
-				if (element.Contains("BACK"))
+				if (element.Contains("backuperCad_"))
 				{
 					selectedProfil.Items.Add(element);
 				}
@@ -37,7 +39,6 @@ namespace BackuperCad
 			String program = programElements[0];
 			String selectedProfileToBeRestored = selectedProfil.Text;
 			//String reg = programElements[1];
-			String userName = Environment.UserName;
 			String sourcePath = selectedProfileToBeRestored;
 			String roamingSource = selectedProfileToBeRestored + "\\Roaming";
 			String localSource = selectedProfileToBeRestored + "\\Local";

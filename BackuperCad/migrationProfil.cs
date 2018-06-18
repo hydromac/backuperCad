@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -11,9 +12,11 @@ using System.Windows.Forms;
 
 namespace BackuperCad
 {
-	public partial class Form4 : Form
+	public partial class migrationProfil : Form
 	{
-		public Form4(StartWindow form1)
+		String userName = Environment.UserName;
+
+		public migrationProfil(StartWindow form1)
 		{
 			InitializeComponent();
 		}
@@ -30,11 +33,11 @@ namespace BackuperCad
 			String reg = programElements[1];
 			String changeToUserName = ChangeToUserName.Text; 
 
-			String userName = Environment.UserName;
+			
 			String pathRoaming = "C:\\Users\\" + userName + "\\AppData\\Roaming\\" + program;
 			String pathLocal = "C:\\Users\\" + userName + "\\AppData\\Local\\" + program;
 
-			String targetPath = "C:\\BACK_ " + program + String.Format("_{0}_{1}_{2}_{3}", DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year, changeToUserName);
+			String targetPath = "C:\\Users\\" + userName + "\\Documents\\backuperCad_ " + program + String.Format("_{0}_{1}_{2}_{3}", DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year, changeToUserName);
 			String targetRoaming = targetPath + "\\Roaming";
 			String targetLocal = targetPath + "\\Local";
 			String pathReg = "HKCU\\Software\\" + reg;
@@ -103,6 +106,9 @@ namespace BackuperCad
 						}
 						progresMoment.ForeColor = Color.FromArgb(0, 204, 0);
 						progresMoment.Text = "Skończone";
+						openExplorer.Visible = true;
+						Refresh();
+
 
 					}
 					else
@@ -125,9 +131,9 @@ namespace BackuperCad
 			}
 		}
 
-		private void Form4_Load(object sender, EventArgs e)
+		private void openExplorer_Click(object sender, EventArgs e)
 		{
-
+			Process.Start(@"C:\\Users\\" + userName + "\\Documents\\");
 		}
 	}
 }
