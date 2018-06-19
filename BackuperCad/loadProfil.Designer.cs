@@ -47,7 +47,7 @@ namespace BackuperCad
 			this.selectedProfil.FormattingEnabled = true;
 			this.selectedProfil.Location = new System.Drawing.Point(33, 89);
 			this.selectedProfil.Name = "selectedProfil";
-			this.selectedProfil.Size = new System.Drawing.Size(318, 21);
+			this.selectedProfil.Size = new System.Drawing.Size(424, 21);
 			this.selectedProfil.TabIndex = 19;
 			// 
 			// wProgram
@@ -79,14 +79,14 @@ namespace BackuperCad
             "GStar CAD"});
 			this.sProgram.Location = new System.Drawing.Point(33, 36);
 			this.sProgram.Name = "sProgram";
-			this.sProgram.Size = new System.Drawing.Size(318, 21);
+			this.sProgram.Size = new System.Drawing.Size(424, 21);
 			this.sProgram.TabIndex = 16;
 			this.sProgram.Tag = "";
 			// 
 			// b2
 			// 
 			this.b2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.b2.Location = new System.Drawing.Point(195, 144);
+			this.b2.Location = new System.Drawing.Point(301, 146);
 			this.b2.Name = "b2";
 			this.b2.Size = new System.Drawing.Size(156, 24);
 			this.b2.TabIndex = 15;
@@ -112,12 +112,12 @@ namespace BackuperCad
 			this.Progres.TabIndex = 25;
 			this.Progres.Text = "Progres: ";
 			// 
-			// Form3
+			// loadProfil
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.ClientSize = new System.Drawing.Size(384, 211);
+			this.ClientSize = new System.Drawing.Size(484, 211);
 			this.Controls.Add(this.progresMoment);
 			this.Controls.Add(this.Progres);
 			this.Controls.Add(this.selectedProfil);
@@ -125,9 +125,9 @@ namespace BackuperCad
 			this.Controls.Add(this.wProfil);
 			this.Controls.Add(this.sProgram);
 			this.Controls.Add(this.b2);
-			this.MaximumSize = new System.Drawing.Size(400, 250);
-			this.MinimumSize = new System.Drawing.Size(400, 250);
-			this.Name = "Form3";
+			this.MaximumSize = new System.Drawing.Size(500, 250);
+			this.MinimumSize = new System.Drawing.Size(500, 250);
+			this.Name = "loadProfil";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Wgrywanie profilu...";
 			this.ResumeLayout(false);

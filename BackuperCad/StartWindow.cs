@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Diagnostics;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 
 namespace BackuperCad
 {
@@ -15,7 +9,24 @@ namespace BackuperCad
 	{
 		public StartWindow()
 		{
+
 			InitializeComponent();
+			if (Process.GetProcessesByName("acad").Length > 0 || Process.GetProcessesByName("ZWCAD").Length > 0 || Process.GetProcessesByName("gcad").Length > 0 ) {
+				var result = MessageBox.Show("Do poprawnego działania programu\nnależy wyłączy program Cad\n\n Wyłącz?", "Czy włączyć program...",
+								 MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+
+				if (result == DialogResult.No) {
+					System.Environment.Exit(1);
+					
+				}
+
+				if (result == DialogResult.Yes)
+				{
+						OperationCAD.closeCAD();
+				}	
+			}
+
+			
 		}
 
 		private void goToCopy_Click(object sender, EventArgs e)

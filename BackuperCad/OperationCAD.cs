@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace BackuperCad
 {
@@ -123,6 +120,34 @@ namespace BackuperCad
 			catch (Exception ex)
 			{
 				// handle exception
+			}
+		}
+
+		public static void closeCAD() {
+
+			Process[] processes = Process.GetProcessesByName("acad");
+
+
+			foreach (Process proc in processes)
+			{
+				proc.CloseMainWindow();
+				proc.WaitForExit();
+			}
+
+			processes = Process.GetProcessesByName("ZWCAD");
+
+			foreach (Process proc in processes)
+			{
+				proc.CloseMainWindow();
+				proc.WaitForExit();
+			}
+
+			processes = Process.GetProcessesByName("gcad");
+
+			foreach (Process proc in processes)
+			{
+				proc.CloseMainWindow();
+				proc.WaitForExit();
 			}
 		}
 	}

@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BackuperCad
@@ -49,7 +44,7 @@ namespace BackuperCad
 			//MessageBox.Show("sRoaming: " + roamingSource +"\n" + "sSource: "  + localSource + "\n" +"targetRoaming: " + targetRoaming + "\n" + "targetLocal: " + targetLocal + "\n" + pathReg) ;
 			if (!String.IsNullOrEmpty(selectedProfileToBeRestored) && !String.IsNullOrEmpty(program) && selectedProfileToBeRestored.Contains(program))
 			{
-				
+				progresMoment.ForeColor = Color.FromArgb(0, 0, 0);
 				progresMoment.Text = "Usuwam obecny profil CAD...";
 				Refresh();
 				if (Directory.Exists(targetRoaming) && Directory.Exists(targetLocal))
@@ -69,6 +64,8 @@ namespace BackuperCad
 					
 
 				}
+
+				progresMoment.ForeColor = Color.FromArgb(0, 0, 0);
 				progresMoment.Text = "Wgrywam nowy profil CAD...";
 				Refresh();
 				try
@@ -84,14 +81,13 @@ namespace BackuperCad
 					
 
 				}
-
+				progresMoment.ForeColor = Color.FromArgb(0, 0, 0);
 				progresMoment.Text = "Importuje rejestr...";
 				Refresh();
 				try
 				{
 
 					OperationCAD.importRegistry(pathReg);
-					//workingTxt.Text = "Ukończono wgrywanie profilu";
 
 				}
 				catch

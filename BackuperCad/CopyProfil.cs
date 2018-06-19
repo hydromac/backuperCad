@@ -38,7 +38,7 @@ namespace BackuperCad
 			String pathRoaming = "C:\\Users\\" + userName + "\\AppData\\Roaming\\" + program;
 			String pathLocal = "C:\\Users\\" + userName + "\\AppData\\Local\\" + program;
 
-			String targetPath = "C:\\Users\\" + userName + "\\Documents\\" + "backuperCad_ " + program + String.Format("_{0}_{1}_{2}", DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year);
+			String targetPath = "C:\\Users\\" + userName + "\\Documents\\" + "backuperCad_ " + program + String.Format("_{0}_{1:D2}_{2:D2}", DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
 			String targetRoaming = targetPath + "\\Roaming";
 			String targetLocal = targetPath + "\\Local";
 			String pathReg = "HKCU\\Software\\" + reg;

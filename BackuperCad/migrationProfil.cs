@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BackuperCad
@@ -37,7 +31,7 @@ namespace BackuperCad
 			String pathRoaming = "C:\\Users\\" + userName + "\\AppData\\Roaming\\" + program;
 			String pathLocal = "C:\\Users\\" + userName + "\\AppData\\Local\\" + program;
 
-			String targetPath = "C:\\Users\\" + userName + "\\Documents\\backuperCad_ " + program + String.Format("_{0}_{1}_{2}_{3}", DateTime.Now.Day, DateTime.Now.Month, DateTime.Now.Year, changeToUserName);
+			String targetPath = "C:\\Users\\" + userName + "\\Documents\\backuperCad_ " + program + String.Format("_{0}_{1:D2}_{2:D2}_{3}", DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, changeToUserName);
 			String targetRoaming = targetPath + "\\Roaming";
 			String targetLocal = targetPath + "\\Local";
 			String pathReg = "HKCU\\Software\\" + reg;
@@ -47,6 +41,7 @@ namespace BackuperCad
 
 				if (!Directory.Exists(targetPath))
 				{
+					progresMoment.ForeColor = Color.FromArgb(0, 0, 0);
 					progresMoment.Text = "Zaczynam prace...";
 					Refresh();
 
@@ -67,7 +62,7 @@ namespace BackuperCad
 							MessageBox.Show("Nie udało się utworzyć kopi :" + program);
 						}
 
-
+						progresMoment.ForeColor = Color.FromArgb(0, 0, 0);
 						progresMoment.Text = "Kopiowanie plików...";
 						Refresh();
 
@@ -89,7 +84,7 @@ namespace BackuperCad
 							progresMoment.Text = "Nie udało się utworzyć kopi :" + program;
 
 						}
-
+						progresMoment.ForeColor = Color.FromArgb(0, 0, 0);
 						progresMoment.Text = "Nanoszenie zmian w kopi rejestru...";
 						Refresh();
 						try
