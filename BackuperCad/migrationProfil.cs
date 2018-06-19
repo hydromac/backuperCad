@@ -25,13 +25,15 @@ namespace BackuperCad
 			programElements = OperationCAD.WhatCopy(sProgram.Text);
 			String program = programElements[0];
 			String reg = programElements[1];
-			String changeToUserName = ChangeToUserName.Text; 
+			String changeToUserName = ChangeToUserName.Text;
+			String apdataRoamin = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData).ToString();
+			String apdataLocal = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData).ToString();
+			String myDocument = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments).ToString();
 
-			
-			String pathRoaming = "C:\\Users\\" + userName + "\\AppData\\Roaming\\" + program;
-			String pathLocal = "C:\\Users\\" + userName + "\\AppData\\Local\\" + program;
+			String pathRoaming = apdataRoamin + "\\" + program;
+			String pathLocal = apdataLocal + "\\" + program;
 
-			String targetPath = "C:\\Users\\" + userName + "\\Documents\\backuperCad_ " + program + String.Format("_{0}_{1:D2}_{2:D2}_{3}", DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, changeToUserName);
+			String targetPath = myDocument + "\\backuperCad_ " + program + String.Format("_{0}_{1:D2}_{2:D2}_{3}", DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, changeToUserName);
 			String targetRoaming = targetPath + "\\Roaming";
 			String targetLocal = targetPath + "\\Local";
 			String pathReg = "HKCU\\Software\\" + reg;

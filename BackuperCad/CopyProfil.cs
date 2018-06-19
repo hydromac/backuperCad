@@ -34,11 +34,16 @@ namespace BackuperCad
 			String reg = programElements[1];
 
 
-			
-			String pathRoaming = "C:\\Users\\" + userName + "\\AppData\\Roaming\\" + program;
-			String pathLocal = "C:\\Users\\" + userName + "\\AppData\\Local\\" + program;
 
-			String targetPath = "C:\\Users\\" + userName + "\\Documents\\" + "backuperCad_ " + program + String.Format("_{0}_{1:D2}_{2:D2}", DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+
+			String apdataRoamin = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData).ToString();
+			String apdataLocal = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData).ToString();
+			String myDocument = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments).ToString();
+			String pathRoaming = apdataRoamin + "\\" + program;
+			String pathLocal = apdataLocal + "\\" + program;
+			
+
+			String targetPath = myDocument + "\\" + "backuperCad_ " + program + String.Format("_{0}_{1:D2}_{2:D2}", DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
 			String targetRoaming = targetPath + "\\Roaming";
 			String targetLocal = targetPath + "\\Local";
 			String pathReg = "HKCU\\Software\\" + reg;
@@ -117,7 +122,7 @@ namespace BackuperCad
 
 		private void OpenExplorer_Click(object sender, EventArgs e)
 		{
-			Process.Start(@"C:\\Users\\" + userName + "\\Documents\\");
+			Process.Start(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments).ToString());
 		}
 	}
 }

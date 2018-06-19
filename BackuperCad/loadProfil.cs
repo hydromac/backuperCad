@@ -9,11 +9,11 @@ namespace BackuperCad
 	public partial class loadProfil : Form
 	{
 		String userName = Environment.UserName;
-
+		String myDocument = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments).ToString();
 		public loadProfil(StartWindow form1)
 		{
 			InitializeComponent();
-			List<string> BackupList = new List<string>(Directory.GetDirectories("C:\\Users\\" + userName + "\\Documents\\"));
+			List<string> BackupList = new List<string>(Directory.GetDirectories(myDocument));
 			foreach (string element in BackupList)
 			{
 				if (element.Contains("backuperCad_"))
@@ -38,8 +38,10 @@ namespace BackuperCad
 			String roamingSource = selectedProfileToBeRestored + "\\Roaming";
 			String localSource = selectedProfileToBeRestored + "\\Local";
 			String pathReg = sourcePath + "\\regCopy.reg";
-			String targetRoaming = "C:\\Users\\" + userName + "\\AppData\\Roaming\\" + program;
-			String targetLocal = "C:\\Users\\" + userName + "\\AppData\\Local\\" + program;
+			String apdataRoamin = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData).ToString();
+			String apdataLocal = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData).ToString();
+			String targetRoaming = apdataRoamin + "\\" + program;
+			String targetLocal = apdataLocal + "\\" + program;
 
 			//MessageBox.Show("sRoaming: " + roamingSource +"\n" + "sSource: "  + localSource + "\n" +"targetRoaming: " + targetRoaming + "\n" + "targetLocal: " + targetLocal + "\n" + pathReg) ;
 			if (!String.IsNullOrEmpty(selectedProfileToBeRestored) && !String.IsNullOrEmpty(program) && selectedProfileToBeRestored.Contains(program))
@@ -86,9 +88,7 @@ namespace BackuperCad
 				Refresh();
 				try
 				{
-
 					OperationCAD.importRegistry(pathReg);
-
 				}
 				catch
 				{
